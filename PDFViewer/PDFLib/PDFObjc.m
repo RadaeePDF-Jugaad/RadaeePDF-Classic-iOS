@@ -881,6 +881,10 @@ long long AnnotCallback(void* user, PDF_ANNOT annot)
 {
 	return Page_getAnnotFieldFlag( m_page, m_handle );
 }
+-(NSString *)fieldBtnLabel
+{
+	return Page_getAnnotFieldBtnLabel( m_page, m_handle );
+}
 -(NSString *)fieldName
 {
 	char buf[512];
@@ -1454,10 +1458,7 @@ long long AnnotCallback(void* user, PDF_ANNOT annot)
 -(bool)render:(RDPDFDIB *)dib :(RDPDFMatrix *)mat :(int)quality
 {
     return Page_render(m_page, [dib handle], [mat handle], true, quality);
-}
--(bool)render1:(RDPDFDIB *)dib :(RDPDFMatrix *)mat :(func_annot_callback)callback :(void *)user :(int)mode
-{
-    return Page_render1(m_page, [dib handle], [mat handle], callback, user, mode);
+    //return Page_render1(m_page, [dib handle], [mat handle], AnnotCallback, m_page, quality);
 }
 -(void)renderCancel
 {
