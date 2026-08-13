@@ -43,7 +43,13 @@ To quickly test the RadaeePDF SDK demo:
    - For physical devices, ensure your device is connected and trusted
 
 4. **Configure Simulator Settings** (for iOS Simulator only)
-   - **Important for Apple Silicon Macs**: If you're running on an Apple Silicon (M1/M2/M3) Mac, you need to install the **Universal** version of the iOS Simulator (which includes Rosetta support) instead of the default Apple Silicon-only version. In Xcode, go to **Settings** → **Platforms** and download the **Universal** simulator runtime for your target iOS version.
+   - **Important for Apple Silicon Macs**: If you're running on an Apple Silicon (M1/M2/M3) Mac, you need the **Universal** version of the iOS Simulator runtime (which includes x86_64/Rosetta support) instead of the default arm64-only version. This option is **not** available from Xcode's UI — **Settings** → **Platforms** only lets you download the default arm64 runtime. You need to install it from the terminal instead:
+     1. If an iOS simulator runtime is already installed, delete it first (**Xcode** → **Settings** → **Platforms**, or via `xcrun simctl runtime list` / `delete`)
+     2. Run the following command in Terminal:
+        ```
+        xcodebuild -downloadPlatform iOS -architectureVariant universal
+        ```
+     3. Wait for the download to finish, then relaunch Xcode
    - In Xcode, select your project in the Project Navigator
    - Select the **PDFMaster** target
    - Go to **Build Settings** tab
