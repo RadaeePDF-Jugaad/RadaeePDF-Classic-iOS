@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "btn_dark_mode.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "btn_dark_mode-1.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "btn_dark_mode-2.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "btn_night_mode.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
@@ -21,6 +10,7 @@
     "version" : 1
   },
   "properties" : {
-    "template-rendering-intent" : "template"
+    "template-rendering-intent" : "template",
+    "preserves-vector-representation" : true
   }
 }
