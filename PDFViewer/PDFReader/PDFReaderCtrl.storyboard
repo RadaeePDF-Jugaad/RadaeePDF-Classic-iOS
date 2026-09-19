@@ -393,8 +393,11 @@
                         <outlet property="mSliderView" destination="yd3-3g-E5Y" id="ZzT-fi-Z6m"/>
                         <outlet property="mThumb" destination="Pyy-35-6l3" id="GDq-EF-3AB"/>
                         <outlet property="mView" destination="t7w-Xn-IiW" id="AWk-Ke-IFn"/>
+                        <outlet property="moreItem" destination="v4J-h2-hT8" id="a80001500000010"/>
                         <outlet property="searchItem" destination="he3-Yp-Klw" id="WJg-mh-F0H"/>
+                        <outlet property="searchOptionsItem" destination="W7n-bX-h9S" id="a80001500000020"/>
                         <outlet property="thumbHeightConstraint" destination="NlQ-Qd-Vm5" id="uRM-iS-Q7p"/>
+                        <outlet property="viewItem" destination="3td-Zb-C2r" id="a80001500000030"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2E-IY-4iK" userLabel="First Responder" sceneMemberID="firstResponder"/>

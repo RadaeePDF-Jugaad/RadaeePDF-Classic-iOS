@@ -34,12 +34,9 @@
 		551F8F84248F3640006CD51E /* PDFNavCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F7E248F3640006CD51E /* PDFNavCtrl.m */; };
 		551F8F85248F3640006CD51E /* UICellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F7F248F3640006CD51E /* UICellView.m */; };
 		551F8FBF248F3669006CD51E /* DlgAnnotPropMarkup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551F8F87248F3665006CD51E /* DlgAnnotPropMarkup.xib */; };
-		551F8FC0248F3669006CD51E /* MenuVMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F89248F3665006CD51E /* MenuVMode.m */; };
 		551F8FC1248F3669006CD51E /* DlgAnnotPropIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F8B248F3665006CD51E /* DlgAnnotPropIcon.m */; };
 		551F8FC3248F3669006CD51E /* PDFReaderCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F8E248F3666006CD51E /* PDFReaderCtrl.m */; };
 		551F8FC4248F3669006CD51E /* RDPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F8F248F3666006CD51E /* RDPageViewController.m */; };
-		551F8FC5248F3669006CD51E /* MenuTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F90248F3666006CD51E /* MenuTool.m */; };
-		551F8FC8248F3669006CD51E /* MenuAnnot.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F94248F3666006CD51E /* MenuAnnot.m */; };
 		551F8FC9248F3669006CD51E /* RDPDFReflowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F95248F3666006CD51E /* RDPDFReflowViewController.m */; };
 		551F8FCA248F3669006CD51E /* RDSinglePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F96248F3666006CD51E /* RDSinglePageViewController.m */; };
 		551F8FCB248F3669006CD51E /* UILHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F98248F3666006CD51E /* UILHeadView.m */; };
@@ -90,7 +87,6 @@
 		5E7FE6DC25559EE000B5B30B /* UviSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E92EC092549CD000010D029 /* UviSignatureView.m */; };
 		5E92EC0A2549CD000010D029 /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E92EC082549CD000010D029 /* SignatureViewController.m */; };
 		5E92EC0B2549CD000010D029 /* UviSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E92EC092549CD000010D029 /* UviSignatureView.m */; };
-		5EA60C7F24A4E0B4005A3C6E /* MenuSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA60C7E24A4E0B4005A3C6E /* MenuSearch.m */; };
 		5ECF1254240E50B600B873CB /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A801AD76227C91AA002DA8B3 /* AVKit.framework */; };
 		5ECF1256240E517900B873CB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ECF1255240E517900B873CB /* AVFoundation.framework */; };
 		5ED370E424A5E4F300046D6C /* RDExtendedSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED370E024A5E4F300046D6C /* RDExtendedSearch.m */; };
@@ -104,8 +100,6 @@
 		5EDB346826C130CB00E39B7A /* RDBookmarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EDB346726C130CA00E39B7A /* RDBookmarkViewController.xib */; };
 		5EE4C44224ACBA920081723F /* RDPopupTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE4C44024ACBA920081723F /* RDPopupTextViewController.m */; };
 		5EE4C44324ACBA920081723F /* RDPopupTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE4C44124ACBA920081723F /* RDPopupTextViewController.xib */; };
-		5EEB848A24F51F5100C32154 /* MenuSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EA60C7D24A4E0B4005A3C6E /* MenuSearch.h */; };
-		5EEB848C24F51F7200C32154 /* MenuSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA60C7E24A4E0B4005A3C6E /* MenuSearch.m */; };
 		5EEB848D24F51F9000C32154 /* RDExtendedSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED370E024A5E4F300046D6C /* RDExtendedSearch.m */; };
 		5EEB848E24F51F9200C32154 /* RDExtendedSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ED370E324A5E4F300046D6C /* RDExtendedSearch.h */; };
 		5EEB848F24F51FD300C32154 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED370E224A5E4F300046D6C /* SearchResultViewController.m */; };
@@ -137,9 +131,6 @@
 		6CD915B2169707DD00A4C5EB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD915B1169707DD00A4C5EB /* QuartzCore.framework */; };
 		A801AD75227C90D5002DA8B3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A801AD74227C90D5002DA8B3 /* libsqlite3.tbd */; };
 		A816489D24A23DAF005ADBF7 /* RDToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A816489C24A23DAF005ADBF7 /* RDToolbar.m */; };
-		A84CA71624921ABD0082C9DE /* RDMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A84CA71424921ABD0082C9DE /* RDMenu.h */; };
-		A84CA71724921ABD0082C9DE /* RDMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A84CA71524921ABD0082C9DE /* RDMenu.m */; };
-		A84CA71824921ABD0082C9DE /* RDMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A84CA71524921ABD0082C9DE /* RDMenu.m */; };
 		A84CA72B249228F60082C9DE /* PDFNavCtrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8F7B248F3640006CD51E /* PDFNavCtrl.h */; };
 		A84CA72C249228F60082C9DE /* PDFNavThumb.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8F80248F3640006CD51E /* PDFNavThumb.h */; };
 		A84CA72D249228F60082C9DE /* UICellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8F7A248F363F006CD51E /* UICellView.h */; };
@@ -147,11 +138,8 @@
 		A84CA730249229210082C9DE /* DlgAnnotPropIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8FB5248F3668006CD51E /* DlgAnnotPropIcon.h */; };
 		A84CA731249229210082C9DE /* DlgAnnotPropLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8FAD248F3668006CD51E /* DlgAnnotPropLine.h */; };
 		A84CA732249229210082C9DE /* DlgAnnotPropMarkup.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8FB8248F3668006CD51E /* DlgAnnotPropMarkup.h */; };
-		A84CA735249229210082C9DE /* MenuAnnot.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8F91248F3666006CD51E /* MenuAnnot.h */; };
 		A84CA736249229210082C9DE /* MenuAnnotOp.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8F88248F3665006CD51E /* MenuAnnotOp.h */; };
 		A84CA737249229210082C9DE /* MenuCombo.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8F97248F3666006CD51E /* MenuCombo.h */; };
-		A84CA738249229210082C9DE /* MenuTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8FB4248F3668006CD51E /* MenuTool.h */; };
-		A84CA739249229210082C9DE /* MenuVMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8FA8248F3667006CD51E /* MenuVMode.h */; };
 		A84CA73A249229210082C9DE /* PDFReaderCtrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8F9B248F3666006CD51E /* PDFReaderCtrl.h */; };
 		A84CA73D249229210082C9DE /* RDPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8FB3248F3668006CD51E /* RDPageViewController.h */; };
 		A84CA73E249229210082C9DE /* RDPDFReflowViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 551F8F99248F3666006CD51E /* RDPDFReflowViewController.h */; };
@@ -201,11 +189,8 @@
 		A84CA76B24923B460082C9DE /* DlgAnnotPropIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F8B248F3665006CD51E /* DlgAnnotPropIcon.m */; };
 		A84CA76C24923B460082C9DE /* DlgAnnotPropLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8FA7248F3667006CD51E /* DlgAnnotPropLine.m */; };
 		A84CA76D24923B460082C9DE /* DlgAnnotPropMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F9C248F3666006CD51E /* DlgAnnotPropMarkup.m */; };
-		A84CA77024923B460082C9DE /* MenuAnnot.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F94248F3666006CD51E /* MenuAnnot.m */; };
 		A84CA77124923B460082C9DE /* MenuAnnotOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8FB6248F3668006CD51E /* MenuAnnotOp.m */; };
 		A84CA77224923B460082C9DE /* MenuCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F9A248F3666006CD51E /* MenuCombo.m */; };
-		A84CA77324923B460082C9DE /* MenuTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F90248F3666006CD51E /* MenuTool.m */; };
-		A84CA77424923B460082C9DE /* MenuVMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F89248F3665006CD51E /* MenuVMode.m */; };
 		A84CA77524923B460082C9DE /* PDFReaderCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F8E248F3666006CD51E /* PDFReaderCtrl.m */; };
 		A84CA77824923B460082C9DE /* RDPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F8F248F3666006CD51E /* RDPageViewController.m */; };
 		A84CA77924923B460082C9DE /* RDPDFReflowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F95248F3666006CD51E /* RDPDFReflowViewController.m */; };
@@ -306,15 +291,11 @@
 		551F8F80248F3640006CD51E /* PDFNavThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFNavThumb.h; path = PDFNav/PDFNavThumb.h; sourceTree = "<group>"; };
 		551F8F87248F3665006CD51E /* DlgAnnotPropMarkup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DlgAnnotPropMarkup.xib; path = PDFReader/DlgAnnotPropMarkup.xib; sourceTree = "<group>"; };
 		551F8F88248F3665006CD51E /* MenuAnnotOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuAnnotOp.h; path = PDFReader/MenuAnnotOp.h; sourceTree = "<group>"; };
-		551F8F89248F3665006CD51E /* MenuVMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuVMode.m; path = PDFReader/MenuVMode.m; sourceTree = "<group>"; };
 		551F8F8A248F3665006CD51E /* RDSinglePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDSinglePageViewController.h; path = PDFReader/RDSinglePageViewController.h; sourceTree = "<group>"; };
 		551F8F8B248F3665006CD51E /* DlgAnnotPropIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DlgAnnotPropIcon.m; path = PDFReader/DlgAnnotPropIcon.m; sourceTree = "<group>"; };
 		551F8F8D248F3666006CD51E /* UIColorBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorBtn.h; path = PDFReader/UIColorBtn.h; sourceTree = "<group>"; };
 		551F8F8E248F3666006CD51E /* PDFReaderCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFReaderCtrl.m; path = PDFReader/PDFReaderCtrl.m; sourceTree = "<group>"; };
 		551F8F8F248F3666006CD51E /* RDPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDPageViewController.m; path = PDFReader/RDPageViewController.m; sourceTree = "<group>"; };
-		551F8F90248F3666006CD51E /* MenuTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTool.m; path = PDFReader/MenuTool.m; sourceTree = "<group>"; };
-		551F8F91248F3666006CD51E /* MenuAnnot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuAnnot.h; path = PDFReader/MenuAnnot.h; sourceTree = "<group>"; };
-		551F8F94248F3666006CD51E /* MenuAnnot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuAnnot.m; path = PDFReader/MenuAnnot.m; sourceTree = "<group>"; };
 		551F8F95248F3666006CD51E /* RDPDFReflowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDPDFReflowViewController.m; path = PDFReader/RDPDFReflowViewController.m; sourceTree = "<group>"; };
 		551F8F96248F3666006CD51E /* RDSinglePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDSinglePageViewController.m; path = PDFReader/RDSinglePageViewController.m; sourceTree = "<group>"; };
 		551F8F97248F3666006CD51E /* MenuCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuCombo.h; path = PDFReader/MenuCombo.h; sourceTree = "<group>"; };
@@ -330,13 +311,11 @@
 		551F8FA4248F3667006CD51E /* DlgAnnotPropIcon.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DlgAnnotPropIcon.xib; path = PDFReader/DlgAnnotPropIcon.xib; sourceTree = "<group>"; };
 		551F8FA6248F3667006CD51E /* DlgAnnotPropComm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DlgAnnotPropComm.m; path = PDFReader/DlgAnnotPropComm.m; sourceTree = "<group>"; };
 		551F8FA7248F3667006CD51E /* DlgAnnotPropLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DlgAnnotPropLine.m; path = PDFReader/DlgAnnotPropLine.m; sourceTree = "<group>"; };
-		551F8FA8248F3667006CD51E /* MenuVMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuVMode.h; path = PDFReader/MenuVMode.h; sourceTree = "<group>"; };
 		551F8FAB248F3668006CD51E /* RDPDFReflowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RDPDFReflowViewController.xib; path = PDFReader/RDPDFReflowViewController.xib; sourceTree = "<group>"; };
 		551F8FAC248F3668006CD51E /* UIIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIIconView.h; path = PDFReader/UIIconView.h; sourceTree = "<group>"; };
 		551F8FAD248F3668006CD51E /* DlgAnnotPropLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgAnnotPropLine.h; path = PDFReader/DlgAnnotPropLine.h; sourceTree = "<group>"; };
 		551F8FAE248F3668006CD51E /* DlgAnnotPropComm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgAnnotPropComm.h; path = PDFReader/DlgAnnotPropComm.h; sourceTree = "<group>"; };
 		551F8FB3248F3668006CD51E /* RDPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDPageViewController.h; path = PDFReader/RDPageViewController.h; sourceTree = "<group>"; };
-		551F8FB4248F3668006CD51E /* MenuTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTool.h; path = PDFReader/MenuTool.h; sourceTree = "<group>"; };
 		551F8FB5248F3668006CD51E /* DlgAnnotPropIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlgAnnotPropIcon.h; path = PDFReader/DlgAnnotPropIcon.h; sourceTree = "<group>"; };
 		551F8FB6248F3668006CD51E /* MenuAnnotOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuAnnotOp.m; path = PDFReader/MenuAnnotOp.m; sourceTree = "<group>"; };
 		551F8FB7248F3668006CD51E /* UILStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILStyleView.m; path = PDFReader/UILStyleView.m; sourceTree = "<group>"; };
@@ -381,8 +360,6 @@
 		5E92EC072549CD000010D029 /* UviSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UviSignatureView.h; sourceTree = "<group>"; };
 		5E92EC082549CD000010D029 /* SignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureViewController.m; sourceTree = "<group>"; };
 		5E92EC092549CD000010D029 /* UviSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UviSignatureView.m; sourceTree = "<group>"; };
-		5EA60C7D24A4E0B4005A3C6E /* MenuSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MenuSearch.h; path = PDFReader/MenuSearch.h; sourceTree = "<group>"; };
-		5EA60C7E24A4E0B4005A3C6E /* MenuSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MenuSearch.m; path = PDFReader/MenuSearch.m; sourceTree = "<group>"; };
 		5ECF1255240E517900B873CB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5ED370E024A5E4F300046D6C /* RDExtendedSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDExtendedSearch.m; path = PDFReader/RDExtendedSearch.m; sourceTree = "<group>"; };
 		5ED370E124A5E4F300046D6C /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultViewController.h; path = PDFReader/SearchResultViewController.h; sourceTree = "<group>"; };
@@ -421,8 +398,6 @@
 		A816489B24A23DAF005ADBF7 /* RDToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDToolbar.h; sourceTree = "<group>"; };
 		A816489C24A23DAF005ADBF7 /* RDToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RDToolbar.m; sourceTree = "<group>"; };
 		A825B99922831EA2009BD8EB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/MoreViewPlist.plist; sourceTree = "<group>"; };
-		A84CA71424921ABD0082C9DE /* RDMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDMenu.h; sourceTree = "<group>"; };
-		A84CA71524921ABD0082C9DE /* RDMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RDMenu.m; sourceTree = "<group>"; };
 		A8549AB62282C8130035A2EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A8549AB82282C8150035A2EF /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A8549AB92282C8160035A2EF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -580,20 +555,10 @@
 				551F8FB8248F3668006CD51E /* DlgAnnotPropMarkup.h */,
 				551F8F9C248F3666006CD51E /* DlgAnnotPropMarkup.m */,
 				551F8F87248F3665006CD51E /* DlgAnnotPropMarkup.xib */,
-				551F8F91248F3666006CD51E /* MenuAnnot.h */,
-				551F8F94248F3666006CD51E /* MenuAnnot.m */,
 				551F8F88248F3665006CD51E /* MenuAnnotOp.h */,
 				551F8FB6248F3668006CD51E /* MenuAnnotOp.m */,
 				551F8F97248F3666006CD51E /* MenuCombo.h */,
 				551F8F9A248F3666006CD51E /* MenuCombo.m */,
-				551F8FB4248F3668006CD51E /* MenuTool.h */,
-				551F8F90248F3666006CD51E /* MenuTool.m */,
-				551F8FA8248F3667006CD51E /* MenuVMode.h */,
-				551F8F89248F3665006CD51E /* MenuVMode.m */,
-				5EA60C7D24A4E0B4005A3C6E /* MenuSearch.h */,
-				5EA60C7E24A4E0B4005A3C6E /* MenuSearch.m */,
-				A84CA71424921ABD0082C9DE /* RDMenu.h */,
-				A84CA71524921ABD0082C9DE /* RDMenu.m */,
 				551F8F9B248F3666006CD51E /* PDFReaderCtrl.h */,
 				551F8F8E248F3666006CD51E /* PDFReaderCtrl.m */,
 				551F8FA1248F3667006CD51E /* PDFReaderCtrl.storyboard */,
@@ -812,7 +777,6 @@
 			files = (
 				A84CA7542492296D0082C9DE /* RDVGlobal.h in Headers */,
 				A84CA7552492296D0082C9DE /* RDVLayout.h in Headers */,
-				5EEB848A24F51F5100C32154 /* MenuSearch.h in Headers */,
 				A84CA74C249229210082C9DE /* RDPDFView.h in Headers */,
 				A84CA742249229210082C9DE /* UILHeadView.h in Headers */,
 				A84CA744249229210082C9DE /* ActionStackManager.h in Headers */,
@@ -821,13 +785,11 @@
 				A84CA7582492296D0082C9DE /* RDVThread.h in Headers */,
 				A84CA74A249229210082C9DE /* PDFReflowView.h in Headers */,
 				A84CA73A249229210082C9DE /* PDFReaderCtrl.h in Headers */,
-				A84CA738249229210082C9DE /* MenuTool.h in Headers */,
 				A84CA730249229210082C9DE /* DlgAnnotPropIcon.h in Headers */,
 				A84CA72F249229210082C9DE /* DlgAnnotPropComm.h in Headers */,
 				A84CA732249229210082C9DE /* DlgAnnotPropMarkup.h in Headers */,
 				5EEB849024F51FE700C32154 /* SearchResultViewController.h in Headers */,
 				A84CA731249229210082C9DE /* DlgAnnotPropLine.h in Headers */,
-				A84CA735249229210082C9DE /* MenuAnnot.h in Headers */,
 				5EEB849224F5200300C32154 /* RDTreeViewController.h in Headers */,
 				5EEB84A024F5212300C32154 /* RDTreeTableViewCell.h in Headers */,
 				A84CA7572492296D0082C9DE /* RDVSel.h in Headers */,
@@ -846,7 +808,6 @@
 				A84CA72D249228F60082C9DE /* UICellView.h in Headers */,
 				A84CA746249229210082C9DE /* PDFDialog.h in Headers */,
 				5EEB848E24F51F9200C32154 /* RDExtendedSearch.h in Headers */,
-				A84CA739249229210082C9DE /* MenuVMode.h in Headers */,
 				A84CA740249229210082C9DE /* UIColorBtn.h in Headers */,
 				A84CA74E249229610082C9DE /* PDFObjc.h in Headers */,
 				A84CA743249229210082C9DE /* UILStyleView.h in Headers */,
@@ -854,7 +815,6 @@
 				A84CA736249229210082C9DE /* MenuAnnotOp.h in Headers */,
 				A84CA72C249228F60082C9DE /* PDFNavThumb.h in Headers */,
 				A84CA737249229210082C9DE /* MenuCombo.h in Headers */,
-				A84CA71624921ABD0082C9DE /* RDMenu.h in Headers */,
 				A84CA748249229210082C9DE /* PDFLayoutView.h in Headers */,
 				A84CA7522492296D0082C9DE /* RDVCanvas.h in Headers */,
 				A84CA749249229210082C9DE /* PDFPopupCtrl.h in Headers */,
@@ -1001,10 +961,8 @@
 				551F8FD4248F3669006CD51E /* DlgAnnotPropComm.m in Sources */,
 				5E5EED3D24AE17D4002F046E /* RDTreeViewController.m in Sources */,
 				5E4DBDA9249CBC4C003DCDDC /* RDFileCollectionViewController.m in Sources */,
-				551F8FC8248F3669006CD51E /* MenuAnnot.m in Sources */,
 				5ED370F024A63E6800046D6C /* RDMetaDataViewController.m in Sources */,
 				5ED370E424A5E4F300046D6C /* RDExtendedSearch.m in Sources */,
-				551F8FC0248F3669006CD51E /* MenuVMode.m in Sources */,
 				6CC4FD18163EB31700CCBF0B /* main.m in Sources */,
 				A816489D24A23DAF005ADBF7 /* RDToolbar.m in Sources */,
 				5E0F8B8624E68569009387CD /* PDFPagesCtrl.m in Sources */,
@@ -1022,12 +980,10 @@
 				A80001202A0000010000CD51 /* RDSceneDelegate.m in Sources */,
 				551F8F3F248F35D8006CD51E /* PDFObjc.m in Sources */,
 				5E0F8B8724E68569009387CD /* UIPageCellView.m in Sources */,
-				551F8FC5248F3669006CD51E /* MenuTool.m in Sources */,
 				551F8F70248F3615006CD51E /* ActionStackManager.m in Sources */,
 				A8CE660824B73728009BFEDF /* UILShadowView.m in Sources */,
 				551F8FCC248F3669006CD51E /* MenuCombo.m in Sources */,
 				5E5EED3C24AE17D4002F046E /* OUTLINE_ITEM.m in Sources */,
-				5EA60C7F24A4E0B4005A3C6E /* MenuSearch.m in Sources */,
 				551F8F75248F3615006CD51E /* PDFGridView.m in Sources */,
 				551F8F85248F3640006CD51E /* UICellView.m in Sources */,
 				559AC59E248FA1070099E05E /* RadaeePDFPlugin.m in Sources */,
@@ -1054,7 +1010,6 @@
 				551F8FC3248F3669006CD51E /* PDFReaderCtrl.m in Sources */,
 				551F8F71248F3615006CD51E /* PDFReflowView.m in Sources */,
 				6C1F8B7716742FE4002D2778 /* MoreViewController.m in Sources */,
-				A84CA71724921ABD0082C9DE /* RDMenu.m in Sources */,
 				A80001302A0000010000CD51 /* UIView+RDGlass.m in Sources */,
 				551F8F54248F35F8006CD51E /* RDVCanvas.m in Sources */,
 				B6CC4D4716E646E300B82BD3 /* UINavigationController+autoRotate.m in Sources */,
@@ -1073,7 +1028,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EEB848C24F51F7200C32154 /* MenuSearch.m in Sources */,
 				A84CA78724923B8E0082C9DE /* RDFormManager.m in Sources */,
 				5EEB848F24F51FD300C32154 /* SearchResultViewController.m in Sources */,
 				A84CA78824923B8E0082C9DE /* RadaeePDFPlugin.m in Sources */,
@@ -1102,14 +1056,11 @@
 				A84CA76B24923B460082C9DE /* DlgAnnotPropIcon.m in Sources */,
 				A84CA76C24923B460082C9DE /* DlgAnnotPropLine.m in Sources */,
 				A84CA76D24923B460082C9DE /* DlgAnnotPropMarkup.m in Sources */,
-				A84CA77024923B460082C9DE /* MenuAnnot.m in Sources */,
 				5EEB849124F51FFE00C32154 /* RDTreeViewController.m in Sources */,
 				A84CA77124923B460082C9DE /* MenuAnnotOp.m in Sources */,
 				A84CA77224923B460082C9DE /* MenuCombo.m in Sources */,
 				5EEB849524F5201500C32154 /* RDAnnotPickerViewController.m in Sources */,
-				A84CA77324923B460082C9DE /* MenuTool.m in Sources */,
 				5EEB849324F5200B00C32154 /* UILElement.m in Sources */,
-				A84CA77424923B460082C9DE /* MenuVMode.m in Sources */,
 				A84CA77524923B460082C9DE /* PDFReaderCtrl.m in Sources */,
 				A84CA77824923B460082C9DE /* RDPageViewController.m in Sources */,
 				A84CA77924923B460082C9DE /* RDPDFReflowViewController.m in Sources */,
@@ -1131,7 +1082,6 @@
 				5E7FE6DB25559E3E00B5B30B /* SignatureViewController.m in Sources */,
 				5E7FE6DC25559EE000B5B30B /* UviSignatureView.m in Sources */,
 				5E5678D8252F0F180094B036 /* PDFPagesView.m in Sources */,
-				A84CA71824921ABD0082C9DE /* RDMenu.m in Sources */,
 				A80001402A0000010000CD51 /* UIView+RDGlass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

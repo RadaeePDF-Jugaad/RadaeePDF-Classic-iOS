@@ -124,6 +124,7 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *viewItem;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *thumbItem;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *moreItem;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *searchOptionsItem;
 
 - (void)setDoc:(RDPDFDoc *)doc;
 - (void)setDoc:(RDPDFDoc *)doc :(BOOL)readonly;

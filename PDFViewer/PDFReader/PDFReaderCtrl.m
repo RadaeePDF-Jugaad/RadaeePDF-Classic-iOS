@@ -11,10 +11,6 @@
 #import "PDFReaderCtrl.h"
 #import "PDFPopupCtrl.h"
 #import "PDFDialog.h"
-#import "MenuVMode.h"
-#import "MenuTool.h"
-#import "MenuAnnot.h"
-#import "MenuSearch.h"
 #import "MenuAnnotOp.h"
 #import "MenuCombo.h"
 #import "DlgAnnotPropComm.h"
@@ -370,6 +366,15 @@
 {
     [super viewDidLoad];
     [self loadPDF];
+    [self rd_setupNativeMenus];
+}
+
+- (void)rd_setupNativeMenus
+{
+    self.viewItem.menu = [self rd_buildViewModeMenu];
+    self.moreItem.menu = [self rd_buildToolMenu];
+    self.annotItem.menu = [self rd_buildAnnotMenuRoot];
+    self.searchOptionsItem.menu = [self rd_buildSearchOptionsMenu];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -528,17 +533,15 @@
     }
 }
 
-- (IBAction)mode_pressed:(id)sender
+- (UIMenu *)rd_buildViewModeMenu
 {
     PDFLayoutView *vw = m_view;
     PDFReaderCtrl *thiz = self;
-    //CGRect from = [self buttonRect:sender];
 
-    if (showingThumb) {
-        [self thumb_pressed:nil];
-    }
-
-    MenuVMode *view = [[MenuVMode alloc] init:CGPointMake(self.view.center.x-125, _mBarNoneBottom.frame.origin.y) :^(int vmode){
+    void (^setVMode)(int) = ^(int vmode){
+        if (thiz->showingThumb) {
+            [thiz thumb_pressed:nil];
+        }
         switch(vmode)
         {
             case 1:
@@ -554,10 +557,27 @@
                 [vw PDFSetVMode:0];
                 break;
         }
-        [thiz->m_popup dismiss];
-    }];
-    m_popup = [[PDFPopupCtrl alloc] init:view];
-    [self presentViewController:m_popup animated:YES completion:nil];
+    };
+
+    NSArray<NSString *> *titles = @[
+        NSLocalizedString(@"Vertical", nil),
+        NSLocalizedString(@"Horizontal", nil),
+        NSLocalizedString(@"Single Page", nil),
+        NSLocalizedString(@"Double Page", nil),
+    ];
+    NSArray<NSString *> *iconNames = @[@"btn_view_vert", @"btn_view_horz", @"btn_view_single", @"btn_view_dual"];
+
+    NSMutableArray<UIAction *> *actions = [NSMutableArray array];
+    for (NSUInteger i = 0; i < titles.count; i++) {
+        UIAction *action = [UIAction actionWithTitle:titles[i]
+                                                image:[UIImage imageNamed:iconNames[i]]
+                                           identifier:nil
+                                              handler:^(__kindof UIAction * _Nonnull a) {
+            setVMode((int)i);
+        }];
+        [actions addObject:action];
+    }
+    return [UIMenu menuWithTitle:@"" children:actions];
 }
 
 -(void)OnMeta
@@ -613,188 +633,247 @@
     } completion:nil];
 }
 
-- (IBAction)tool_pressed:(id)sender
+- (void)rd_runTool:(int)tool
 {
     PDFLayoutView *vw = m_view;
     PDFReaderCtrl *thiz = self;
-    //CGRect from = [self buttonRect:sender];
+    switch(tool)
+    {
+        case 0:
+            if(!self->m_readonly)
+            {
+                [vw vUndo];
+            }
+            break;
+        case 1:
+            if(!self->m_readonly)
+            {
+                [vw vRedo];
+            }
+            break;
+        case 2:
+            [thiz enter_select];
+            [vw vSelStart];
+            break;
+        case 3:
+            if(!self->m_readonly)
+            {
+                [thiz OnMeta];
+            }
+            break;
+        case 4:
+            [thiz OnOutline];
+            break;
+        case 5:
+            [thiz showBookmarksList];
+            break;
+        case 6:
+            [thiz addBookmark];
+            break;
+        case 7:
+            if (GLOBAL.g_navigation_mode) {
+                GLOBAL.g_navigation_mode = 0;
+            } else {
+                GLOBAL.g_navigation_mode = 1;
+            }
+            [self thumbInit];
+            [self thumbGoTo:self.PDFCurPage];
+            [self enter_none];
+            [self rd_refreshToolMenu];
+            break;
+        case 8:
+            if (GLOBAL.g_dark_mode) {
+                GLOBAL.g_dark_mode = false;
+            } else {
+                GLOBAL.g_dark_mode = true;
+            }
+            [self->m_view vUpdateRange];
+            [self rd_refreshToolMenu];
+            break;
+        case 9:
+        {
+            if(!self->m_readonly)
+            {
+                PDFPagesCtrl *pages = [[UIStoryboard storyboardWithName:@"PDFPagesCtrl" bundle:nil] instantiateViewControllerWithIdentifier:@"rdpdfpages"];
+                [pages setCallback:self->m_doc :^(const bool *pages_del, const int *pages_rot)
+                {
+                    [self->m_view PDFSaveView];
+                    [self->m_thumb PDFSaveView];
+                    int pcnt = [self->m_doc pageCount];
+                    int pcur = pcnt;
+                    while(pcur > 0)
+                    {
+                        pcur--;
+                        if(pages_del[pcur]) [self->m_doc removePage:pcur];
+                        else if((pages_rot[pcur] >> 16) != (pages_rot[pcur] & 0xffff))
+                        {
+                            int deg = (pages_rot[pcur] & 0xffff) - (pages_rot[pcur] >> 16);
+                            if(deg < 0) deg += 360;
+                            RDPDFPage *page = [self->m_doc page:pcur];
+                            int rotate = [page getRotate];
+                            [self->m_doc setPageRotate:pcur :rotate + deg];
+                        }
+                    }
+                    [self->m_thumb PDFRestoreView];
+                    [self->m_view PDFRestoreView];
+                }];
 
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+                    pages.modalPresentationStyle = UIModalPresentationFullScreen;
+                else
+                    pages.modalPresentationStyle = UIModalPresentationFormSheet;
+
+                [self presentViewController:pages animated:YES completion:nil];
+            }
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (UIMenu *)rd_buildToolMenu
+{
     if (showingThumb) {
         [self thumb_pressed:nil];
     }
 
-    MenuTool *view = [[MenuTool alloc] init:CGPointMake(self.view.center.x-125, _mBarNoneBottom.frame.origin.y) :^(int tool){
-        [thiz->m_popup dismiss];
-        switch(tool)
-        {
-            case 0:
-                if(!self->m_readonly)
-                {
-                    [vw vUndo];
-                }
-                break;
-            case 1:
-                if(!self->m_readonly)
-                {
-                    [vw vRedo];
-                }
-                break;
-            case 2:
-                [thiz enter_select];
-                [vw vSelStart];
-                break;
-            case 3:
-                if(!self->m_readonly)
-                {
-                    [thiz OnMeta];
-                }
-                break;
-            case 4:
-                [thiz OnOutline];
-                break;
-            case 5:
-                [thiz showBookmarksList];
-                break;
-            case 6:
-                [thiz addBookmark];
-                break;
-            case 7:
-                if (GLOBAL.g_navigation_mode) {
-                    GLOBAL.g_navigation_mode = 0;
-                } else {
-                    GLOBAL.g_navigation_mode = 1;
-                }
-                [self thumbInit];
-                [self thumbGoTo:self.PDFCurPage];
-                [self enter_none];
-                break;
-            case 8:
-                if (GLOBAL.g_dark_mode) {
-                    GLOBAL.g_dark_mode = false;
-                } else {
-                    GLOBAL.g_dark_mode = true;
-                }
-                [self->m_view vUpdateRange];
-                break;
-            case 9:
-            {
-                if(!self->m_readonly)
-                {
-                    PDFPagesCtrl *pages = [[UIStoryboard storyboardWithName:@"PDFPagesCtrl" bundle:nil] instantiateViewControllerWithIdentifier:@"rdpdfpages"];
-                    [pages setCallback:self->m_doc :^(const bool *pages_del, const int *pages_rot)
-                    {
-                        [self->m_view PDFSaveView];
-                        [self->m_thumb PDFSaveView];
-                        int pcnt = [self->m_doc pageCount];
-                        int pcur = pcnt;
-                        while(pcur > 0)
-                        {
-                            pcur--;
-                            if(pages_del[pcur]) [self->m_doc removePage:pcur];
-                            else if((pages_rot[pcur] >> 16) != (pages_rot[pcur] & 0xffff))
-                            {
-                                int deg = (pages_rot[pcur] & 0xffff) - (pages_rot[pcur] >> 16);
-                                if(deg < 0) deg += 360;
-                                RDPDFPage *page = [self->m_doc page:pcur];
-                                int rotate = [page getRotate];
-                                [self->m_doc setPageRotate:pcur :rotate + deg];
-                            }
-                        }
-                        [self->m_thumb PDFRestoreView];
-                        [self->m_view PDFRestoreView];
-                    }];
+    NSMutableArray<NSString *> *titles = [@[
+        NSLocalizedString(@"Undo", nil),
+        NSLocalizedString(@"Redo", nil),
+        NSLocalizedString(@"Selection", nil),
+        NSLocalizedString(@"Meta", nil),
+        NSLocalizedString(@"Outlines", nil),
+        NSLocalizedString(@"Bookmarks", nil),
+        NSLocalizedString(@"Add Bookmark", nil),
+        (GLOBAL.g_navigation_mode ? NSLocalizedString(@"Slider", nil) : NSLocalizedString(@"Thumbnail", nil)),
+        (GLOBAL.g_dark_mode ? NSLocalizedString(@"Light mode", nil) : NSLocalizedString(@"Night mode", nil)),
+        NSLocalizedString(@"Manage pages", nil),
+    ] mutableCopy];
+    NSMutableArray<NSString *> *iconNames = [@[
+        @"btn_undo", @"btn_redo", @"btn_select", @"btn_meta", @"btn_outline",
+        @"btn_bookmark", @"btn_bookmark_add",
+        (GLOBAL.g_navigation_mode ? @"btn_slider" : @"btn_thumb"),
+        (GLOBAL.g_dark_mode ? @"btn_light_mode" : @"btn_night_mode"),
+        @"btn_manage_page",
+    ] mutableCopy];
 
-                    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-                        pages.modalPresentationStyle = UIModalPresentationFullScreen;
-                    else
-                        pages.modalPresentationStyle = UIModalPresentationFormSheet;
-
-                    [self presentViewController:pages animated:YES completion:nil];
-                }
-            }
-                break;
-            default:
-                break;
+    NSMutableArray<UIAction *> *actions = [NSMutableArray array];
+    for (NSUInteger i = 0; i < titles.count; i++) {
+        UIMenuElementAttributes attrs = 0;
+        if (m_readonly && (i == 0 || i == 1 || i == 3 || i == 9)) {
+            attrs = UIMenuElementAttributesDisabled;
         }
-    }];
-    [view updateIcons:_undoImage :_redoImage :_selectImage];
-    if (![m_doc canSave]) {
-        //[view updateVisible:YES :YES :YES];
-    } /* else {
-        [view updateVisible:_hideUndoImage :_hideRedoImage :_hideSelImage];
-    } */
-
-    if (view.frame.size.height > (self.view.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - 50 - 50 - 10)) {
-        m_popup = [[PDFPopupCtrl alloc] init:[self getScrollViewWithMenu:view]];
-    } else {
-        m_popup = [[PDFPopupCtrl alloc] init:view];
+        UIAction *action = [UIAction actionWithTitle:titles[i]
+                                                image:[UIImage imageNamed:iconNames[i]]
+                                           identifier:nil
+                                              handler:^(__kindof UIAction * _Nonnull a) {
+            [self rd_runTool:(int)i];
+        }];
+        action.attributes = attrs;
+        [actions addObject:action];
     }
-    [self presentViewController:m_popup animated:YES completion:nil];
+    return [UIMenu menuWithTitle:@"" children:actions];
 }
 
-- (IBAction)annot_pressed:(id)sender
+- (void)rd_refreshToolMenu
 {
-    if ([m_view canSaveDocument]) {
-        //CGRect rect = _mBarNoneTop.frame;
-        PDFLayoutView *vw = m_view;
-        PDFReaderCtrl *thiz = self;
-        //CGRect from = [self buttonRect:sender];
+    self.moreItem.menu = [self rd_buildToolMenu];
+}
 
-        if (showingThumb) {
-            [self thumb_pressed:nil];
-        }
-
-        MenuAnnot *view = [[MenuAnnot alloc] init:CGPointMake(self.view.center.x-125, _mBarNoneBottom.frame.origin.y) :^(int type){
-            thiz->m_annot_type = type;
-            switch(type)
-            {
-                case 1://line
-                    [vw vLineStart];
-                    break;
-                case 2://note
-                    [vw vNoteStart];
-                    break;
-                case 3://erctangle
-                    [vw vRectStart];
-                    break;
-                case 4://ellipse
-                    [vw vEllipseStart];
-                    break;
-                case 5://stamp
-                    [vw vImageStart];
-                    break;
-                case 6://editbox
-                    [vw vEditboxStart];
-                    break;
-                case 7://polygon
-                    [vw vPolygonStart];
-                    break;
-                case 8://polyline
-                    [vw vPolylineStart];
-                    break;
-                case 100:
-                    [vw vSelStart];
-                    break;
-                default://ink
-                    [vw vInkStart];
-                    break;
-            }
-            [thiz->m_popup dismiss];
-            [self enter_annot];
-        }];
-        [view updateIcons:_drawImage];
-
-        if (view.frame.size.height > (self.view.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height - 50 - 50 - 10)) {
-            m_popup = [[PDFPopupCtrl alloc] init:[self getScrollViewWithMenu:view]];
-        } else {
-            m_popup = [[PDFPopupCtrl alloc] init:view];
-        }
-        [self presentViewController:m_popup animated:YES completion:nil];
-    }
-    else
+- (void)rd_runAnnotType:(int)type
+{
+    PDFLayoutView *vw = m_view;
+    self->m_annot_type = type;
+    switch(type)
     {
-        [self showBaseAlert:NSLocalizedString(@"Cannot edit.", nil)];
+        case 1://line
+            [vw vLineStart];
+            break;
+        case 2://note
+            [vw vNoteStart];
+            break;
+        case 3://erctangle
+            [vw vRectStart];
+            break;
+        case 4://ellipse
+            [vw vEllipseStart];
+            break;
+        case 5://stamp
+            [vw vImageStart];
+            break;
+        case 6://editbox
+            [vw vEditboxStart];
+            break;
+        case 7://polygon
+            [vw vPolygonStart];
+            break;
+        case 8://polyline
+            [vw vPolylineStart];
+            break;
+        default://ink
+            [vw vInkStart];
+            break;
     }
+    [self enter_annot];
+}
+
+- (UIMenu *)rd_buildAnnotTypeMenu
+{
+    if (showingThumb) {
+        [self thumb_pressed:nil];
+    }
+
+    NSArray<NSString *> *titles = @[
+        NSLocalizedString(@"Ink", nil),
+        NSLocalizedString(@"Line", nil),
+        NSLocalizedString(@"Note", nil),
+        NSLocalizedString(@"Rect", nil),
+        NSLocalizedString(@"Ellipse", nil),
+        NSLocalizedString(@"Stamp", nil),
+        NSLocalizedString(@"Editbox", nil),
+        NSLocalizedString(@"Polygon", nil),
+        NSLocalizedString(@"Polyline", nil),
+    ];
+    NSArray<NSString *> *iconNames = @[
+        @"btn_annot_ink", @"btn_annot_line", @"btn_annot_note", @"btn_annot_rect",
+        @"btn_annot_ellipse", @"btn_annot_stamp", @"btn_edit_box", @"btn_polygon", @"btn_polyline",
+    ];
+
+    NSMutableArray<UIAction *> *actions = [NSMutableArray array];
+    for (NSUInteger i = 0; i < titles.count; i++) {
+        UIAction *action = [UIAction actionWithTitle:titles[i]
+                                                image:[UIImage imageNamed:iconNames[i]]
+                                           identifier:nil
+                                              handler:^(__kindof UIAction * _Nonnull a) {
+            [self rd_runAnnotType:(int)i];
+        }];
+        if ((int)i == self->m_annot_type) {
+            action.state = UIMenuElementStateOn;
+        }
+        [actions addObject:action];
+    }
+    return [UIMenu menuWithTitle:@"" children:actions];
+}
+
+- (UIMenu *)rd_buildAnnotMenuRoot
+{
+    __weak typeof(self) weakSelf = self;
+    UIDeferredMenuElement *deferred = [UIDeferredMenuElement elementWithUncachedProvider:^(void (^ _Nonnull completion)(NSArray<UIMenuElement *> * _Nonnull)) {
+        __strong typeof(weakSelf) self = weakSelf;
+        if (!self) { completion(@[]); return; }
+        if ([self->m_view canSaveDocument]) {
+            completion([self rd_buildAnnotTypeMenu].children);
+        } else {
+            UIAction *blocked = [UIAction actionWithTitle:NSLocalizedString(@"Cannot edit.", nil)
+                                                      image:nil
+                                                 identifier:nil
+                                                    handler:^(__kindof UIAction * _Nonnull a) {}];
+            blocked.attributes = UIMenuElementAttributesDisabled;
+            completion(@[blocked]);
+        }
+    }];
+    return [UIMenu menuWithTitle:@"" children:@[deferred]];
 }
 
 - (void)OnEditboxOK
@@ -907,11 +986,6 @@
     NSString *pat = _mSearchText.text;
     if(!pat || pat.length <= 0) return;
     [self searchProgress];
-    BOOL mwhole = _mSearchWhole.state == UIControlStateSelected;
-    BOOL mcase = _mSearchCase.state == UIControlStateSelected;
-    GLOBAL.g_match_whole_word = mwhole;
-    GLOBAL.g_case_sensitive = mcase;
-
     [self startSearch:pat dir:-1 reset:NO];
 }
 
@@ -920,18 +994,36 @@
     NSString *pat =_mSearchText.text;
     if(!pat || pat.length <= 0) return;
     [self searchProgress];
-    BOOL mwhole =_mSearchWhole.state == UIControlStateSelected;
-    BOOL mcase =_mSearchCase.state == UIControlStateSelected;
-    GLOBAL.g_match_whole_word = mwhole;
-    GLOBAL.g_case_sensitive = mcase;
     [self startSearch:pat dir:1 reset:NO];
 }
 
-- (IBAction)search_tool_pressed:(id)sender
+- (UIMenu *)rd_buildSearchOptionsMenu
 {
-    MenuSearch *view = [[MenuSearch alloc] init:CGPointMake(_mBarNoneBottom.frame.origin.x, _mBarNoneBottom.frame.origin.y) :nil];
-    m_popup = [[PDFPopupCtrl alloc] init:view];
-    [self presentViewController:m_popup animated:YES completion:nil];
+    __weak typeof(self) weakSelf = self;
+    UIAction *caseSensitive = [UIAction actionWithTitle:NSLocalizedString(@"Case sensitive", nil)
+                                                   image:nil
+                                              identifier:nil
+                                                 handler:^(__kindof UIAction * _Nonnull a) {
+        GLOBAL.g_case_sensitive = !GLOBAL.g_case_sensitive;
+        [weakSelf rd_refreshSearchOptionsMenu];
+    }];
+    caseSensitive.state = GLOBAL.g_case_sensitive ? UIMenuElementStateOn : UIMenuElementStateOff;
+
+    UIAction *wholeWord = [UIAction actionWithTitle:NSLocalizedString(@"Match whole word", nil)
+                                               image:nil
+                                          identifier:nil
+                                             handler:^(__kindof UIAction * _Nonnull a) {
+        GLOBAL.g_match_whole_word = !GLOBAL.g_match_whole_word;
+        [weakSelf rd_refreshSearchOptionsMenu];
+    }];
+    wholeWord.state = GLOBAL.g_match_whole_word ? UIMenuElementStateOn : UIMenuElementStateOff;
+
+    return [UIMenu menuWithTitle:@"" children:@[caseSensitive, wholeWord]];
+}
+
+- (void)rd_refreshSearchOptionsMenu
+{
+    self.searchOptionsItem.menu = [self rd_buildSearchOptionsMenu];
 }
 
 - (IBAction)search_cancel:(id)sender
@@ -944,28 +1036,6 @@
     [[RDExtendedSearch sharedInstance] clearSearch];
     [m_view vFindEnd];//this already update the screen.
     [self enter_none];
-}
-
-- (RDMenu *)getScrollViewWithMenu:(RDMenu *)menu
-{
-    CGFloat x = self.view.center.x - menu.frame.size.width / 2;
-        CGFloat y = [[UIApplication sharedApplication] statusBarFrame].size.height + 50 + 10;
-    CGFloat height = self.view.frame.size.height - y - (self.view.frame.size.height - _mBarNoneBottom.frame.origin.y) - 10;
-
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, menu.frame.size.width, height)];
-    [menu setFrame:CGRectMake(0, 0, menu.frame.size.width, menu.frame.size.height)];
-    [scrollView addSubview:menu];
-    scrollView.layer.cornerRadius = 10.0f;
-    scrollView.contentSize = CGSizeMake(menu.frame.origin.x, menu.frame.size.height);
-
-    RDMenu *rdMenu = [[RDMenu alloc] initWithFrame:CGRectMake(x, y, menu.frame.size.width, height)];
-    rdMenu.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.0f];
-    rdMenu.layer.cornerRadius = 10.0f;
-    rdMenu.layer.shadowRadius = 10.0f;
-
-    [rdMenu addSubview:scrollView];
-
-    return rdMenu;
 }
 
 #pragma mark - Bookmark
@@ -1761,15 +1831,6 @@
 }
 
 #pragma mark - Utils
-
-- (CGRect)buttonRect:(UIBarButtonItem *)item {
-    UIView *v = [item valueForKey:@"view"];
-    CGRect fromRect = [_mBarNoneTop convertRect:v.frame toView:self.view];
-    if (fromRect.origin.x + rd_menu_width > self.view.bounds.size.width) {
-        fromRect.origin.x = self.view.bounds.size.width - rd_menu_width - 8;
-    }
-    return fromRect;
-}
 
 - (CGPoint)pdfPointsFromScreenPoints:(int)x :(int)y
 {
