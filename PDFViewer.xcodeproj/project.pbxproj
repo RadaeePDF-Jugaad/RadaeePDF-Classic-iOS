@@ -237,6 +237,8 @@
 		B69E038E1DF4044A0086B208 /* Default-568h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B69E038C1DF4044A0086B208 /* Default-568h@3x.png */; };
 		B6BF30D8183BC57600CCBCB2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6BF30D7183BC57600CCBCB2 /* MediaPlayer.framework */; };
 		B6CC4D4716E646E300B82BD3 /* UINavigationController+autoRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6CC4D4616E646E300B82BD3 /* UINavigationController+autoRotate.m */; };
+		A80001302A0000010000CD51 /* UIView+RDGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = A80001312A0000010000CD51 /* UIView+RDGlass.m */; };
+		A80001402A0000010000CD51 /* UIView+RDGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = A80001312A0000010000CD51 /* UIView+RDGlass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -442,6 +444,8 @@
 		B6BF30D7183BC57600CCBCB2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B6CC4D4516E646E300B82BD3 /* UINavigationController+autoRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+autoRotate.h"; sourceTree = "<group>"; };
 		B6CC4D4616E646E300B82BD3 /* UINavigationController+autoRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+autoRotate.m"; sourceTree = "<group>"; };
+		A80001322A0000010000CD51 /* UIView+RDGlass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RDGlass.h"; sourceTree = "<group>"; };
+		A80001312A0000010000CD51 /* UIView+RDGlass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RDGlass.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -766,6 +770,8 @@
 				5E394920262D56130078828A /* Images.xcassets */,
 				B6CC4D4516E646E300B82BD3 /* UINavigationController+autoRotate.h */,
 				B6CC4D4616E646E300B82BD3 /* UINavigationController+autoRotate.m */,
+				A80001322A0000010000CD51 /* UIView+RDGlass.h */,
+				A80001312A0000010000CD51 /* UIView+RDGlass.m */,
 				A8D4D94622AA506F00B8D806 /* Launch Screen.storyboard */,
 				6CC4FD17163EB31700CCBF0B /* main.m */,
 				6CC4FD19163EB31700CCBF0B /* PDFViewer-Prefix.pch */,
@@ -1049,6 +1055,7 @@
 				551F8F71248F3615006CD51E /* PDFReflowView.m in Sources */,
 				6C1F8B7716742FE4002D2778 /* MoreViewController.m in Sources */,
 				A84CA71724921ABD0082C9DE /* RDMenu.m in Sources */,
+				A80001302A0000010000CD51 /* UIView+RDGlass.m in Sources */,
 				551F8F54248F35F8006CD51E /* RDVCanvas.m in Sources */,
 				B6CC4D4716E646E300B82BD3 /* UINavigationController+autoRotate.m in Sources */,
 				5E4DBDA4249CB70B003DCDDC /* RDFileCollectionViewCell.m in Sources */,
@@ -1125,6 +1132,7 @@
 				5E7FE6DC25559EE000B5B30B /* UviSignatureView.m in Sources */,
 				5E5678D8252F0F180094B036 /* PDFPagesView.m in Sources */,
 				A84CA71824921ABD0082C9DE /* RDMenu.m in Sources */,
+				A80001402A0000010000CD51 /* UIView+RDGlass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

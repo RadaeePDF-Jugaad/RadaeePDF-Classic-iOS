@@ -7,6 +7,8 @@
 
 #import "UILShadowView.h"
 #import "RDUtils.h"
+#import "UIView+RDGlass.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation UILShadowView
 
@@ -38,15 +40,16 @@
 }
 
 - (void)initLayout {
-    self.layer.cornerRadius = 10.0f;
+    self.layer.cornerRadius = 14.0f;
+    self.layer.cornerCurve = kCACornerCurveContinuous;
     self.clipsToBounds = YES;
     self.layer.shadowColor = [UIColor blackColor].CGColor;
     self.layer.shadowOffset = CGSizeMake(0, 0.0f);
     self.layer.shadowRadius = 10.0f;
     self.layer.shadowOpacity = 0.25f;
     self.layer.masksToBounds = NO;
-    
-    self.backgroundColor = [RDUtils radaeeWhiteColor];
+
+    [self rd_applyGlassBackgroundWithCornerRadius:14.0f];
 }
 
 @end

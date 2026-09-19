@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "MenuAnnotOp.h"
+#import "UIView+RDGlass.h"
+#import <QuartzCore/QuartzCore.h>
 @implementation MenuAnnotOp
 - (UIView *)createItem :(int)tag :(CGFloat)x :(CGFloat)w :(CGFloat)h :(UIImage *)img
 {
@@ -76,13 +78,9 @@
         [self addSubview:view];
         width += iconSize;
         
-        if (@available(iOS 13.0, *)) {
-            [self setBackgroundColor:[UIColor systemGray6Color]];
-        } else {
-            [self setBackgroundColor:[UIColor colorWithRed:0.9f green:0.9f blue:0.95f alpha:1.0f]];
-        }
-        
-        self.layer.cornerRadius = 5.0f;
+        [self rd_applyGlassBackgroundWithCornerRadius:25.0f];
+        self.layer.cornerRadius = 25.0f;
+        self.layer.cornerCurve = kCACornerCurveContinuous;
         self.clipsToBounds = YES;
     
         CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;

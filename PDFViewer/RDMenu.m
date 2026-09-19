@@ -7,6 +7,7 @@
 
 #import "RDMenu.h"
 #import "RDUtils.h"
+#import "UIView+RDGlass.h"
 
 @implementation RDMenu
 
@@ -74,17 +75,13 @@
             [self addSubview:view];
         }
         
-        [self setBackgroundColor:[RDUtils radaeeWhiteColor]];//[UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f]];
-        
         frame.size.width = w;
         frame.size.height = h * items.count;
         frame.origin.y = frame.origin.y - frame.size.height - 10;
         self.frame = frame;
-        
-        self.layer.cornerRadius = radius;
+
         self.layer.shadowRadius = radius;
-        
-        //[self insertSubview:shadow atIndex:0];
+        [self rd_applyGlassBackgroundWithCornerRadius:radius];
     }
     return self;
 }
