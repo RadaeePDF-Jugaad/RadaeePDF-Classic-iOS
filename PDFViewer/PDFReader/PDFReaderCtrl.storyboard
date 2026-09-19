@@ -314,7 +314,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ciF-kR-faF"/>
                                     <barButtonItem style="plain" id="iWZ-te-mV8">
                                         <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="x2h-zZ-Wab">
-                                            <rect key="frame" x="63" y="8" width="250" height="34"/>
+                                            <rect key="frame" x="46" y="8" width="290" height="34"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits"/>
