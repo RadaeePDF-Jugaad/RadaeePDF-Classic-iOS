@@ -42,21 +42,9 @@ To quickly test the RadaeePDF SDK demo:
    - In the Xcode toolbar, select a target device (iPhone simulator or connected iOS device)
    - For physical devices, ensure your device is connected and trusted
 
-4. **Configure Simulator Settings** (for iOS Simulator only)
-   - **Important for Apple Silicon Macs**: If you're running on an Apple Silicon (M1/M2/M3) Mac, you need the **Universal** version of the iOS Simulator runtime (which includes x86_64/Rosetta support) instead of the default arm64-only version. This option is **not** available from Xcode's UI — **Settings** → **Platforms** only lets you download the default arm64 runtime. You need to install it from the terminal instead:
-     1. If an iOS simulator runtime is already installed, delete it first (**Xcode** → **Settings** → **Platforms**, or via `xcrun simctl runtime list` / `delete`)
-     2. Run the following command in Terminal:
-        ```
-        xcodebuild -downloadPlatform iOS -architectureVariant universal
-        ```
-     3. Wait for the download to finish, then relaunch Xcode
-   - In Xcode, select your project in the Project Navigator
-   - Select the **PDFMaster** target
-   - Go to **Build Settings** tab
-   - Search for "Excluded Architectures"
-   - Under **Excluded Architectures** > **Debug**, add `arm64` for **Any iOS Simulator SDK**
-   - This ensures the project excludes arm64 architecture when building for iOS Simulator
-   - The project has universal support for simulator devices
+4. **Simulator Support** (nothing to configure)
+   - The SDK ships as `PDFViewer/PDFLib/RDPDFLib.xcframework`, which contains an arm64 device slice and an arm64 + x86_64 simulator slice
+   - Apple Silicon (M1/M2/M3/M4) simulators are supported natively: the default arm64-only iOS runtime is enough, and no "Excluded Architectures" workaround or Rosetta/universal runtime is required
 
 5. **Build and Run**
    - Press **⌘ + R** or click the **Play** button (▶) in the toolbar
@@ -67,8 +55,8 @@ To quickly test the RadaeePDF SDK demo:
 ### Manual Installation
 
 1. Download the RadaeePDF SDK framework from [https://www.radaeepdf.com/](https://www.radaeepdf.com/)
-2. Drag the framework into your Xcode project (PDFLib)
-3. Add the framework libRDPDFLib.a to your target's "Build Phases/Link Binary With Libraries"
+2. Drag `RDPDFLib.xcframework` into your Xcode project (PDFLib)
+3. Add `RDPDFLib.xcframework` to your target's "Build Phases/Link Binary With Libraries"
 
 ## Getting Started
 
