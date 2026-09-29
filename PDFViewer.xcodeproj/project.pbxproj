@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		551F8F2B248F3585006CD51E /* PDFRes in Resources */ = {isa = PBXBuildFile; fileRef = 551F8F2A248F3585006CD51E /* PDFRes */; };
 		551F8F39248F35BA006CD51E /* PDFHttpStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F37248F35BA006CD51E /* PDFHttpStream.m */; };
-		551F8F3E248F35D8006CD51E /* libRDPDFLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551F8F3B248F35D8006CD51E /* libRDPDFLib.a */; };
+		551F8F3E248F35D8006CD51E /* libRDPDFLib.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551F8F3B248F35D8006CD51E /* libRDPDFLib.xcframework */; };
 		551F8F3F248F35D8006CD51E /* PDFObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F3D248F35D8006CD51E /* PDFObjc.m */; };
 		551F8F53248F35F8006CD51E /* RDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F41248F35F7006CD51E /* RDUtils.m */; };
 		551F8F54248F35F8006CD51E /* RDVCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F43248F35F7006CD51E /* RDVCanvas.m */; };
@@ -223,7 +223,7 @@
 		A84CA78624923B460082C9DE /* RDPDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 551F8F69248F3615006CD51E /* RDPDFView.m */; };
 		A84CA78724923B8E0082C9DE /* RDFormManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 559AC59F248FA1380099E05E /* RDFormManager.m */; };
 		A84CA78824923B8E0082C9DE /* RadaeePDFPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 559AC59C248FA1070099E05E /* RadaeePDFPlugin.m */; };
-		A84CA78924923F170082C9DE /* libRDPDFLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551F8F3B248F35D8006CD51E /* libRDPDFLib.a */; };
+		A84CA78924923F170082C9DE /* libRDPDFLib.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551F8F3B248F35D8006CD51E /* libRDPDFLib.xcframework */; };
 		A8549AB52282C8130035A2EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8549AB72282C8130035A2EF /* Localizable.strings */; };
 		A8549AE02282C8F90035A2EF /* MoreViewPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8549AE22282C8F90035A2EF /* MoreViewPlist.plist */; };
 		A8AF4883229D808700D62AB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC4FD0B163EB31700CCBF0B /* UIKit.framework */; };
@@ -255,7 +255,7 @@
 		551F8F37248F35BA006CD51E /* PDFHttpStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFHttpStream.m; path = PDFLib/PDFHttpStream.m; sourceTree = "<group>"; };
 		551F8F38248F35BA006CD51E /* PDFHttpStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFHttpStream.h; path = PDFLib/PDFHttpStream.h; sourceTree = "<group>"; };
 		551F8F3A248F35D8006CD51E /* PDFObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFObjc.h; path = PDFLib/PDFObjc.h; sourceTree = "<group>"; };
-		551F8F3B248F35D8006CD51E /* libRDPDFLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRDPDFLib.a; path = PDFLib/libRDPDFLib.a; sourceTree = "<group>"; };
+		551F8F3B248F35D8006CD51E /* libRDPDFLib.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libRDPDFLib.xcframework; path = PDFLib/libRDPDFLib.xcframework; sourceTree = "<group>"; };
 		551F8F3C248F35D8006CD51E /* PDFIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFIOS.h; path = PDFLib/PDFIOS.h; sourceTree = "<group>"; };
 		551F8F3D248F35D8006CD51E /* PDFObjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFObjc.m; path = PDFLib/PDFObjc.m; sourceTree = "<group>"; };
 		551F8F41248F35F7006CD51E /* RDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDUtils.m; path = PDFLayout/RDUtils.m; sourceTree = "<group>"; };
@@ -454,7 +454,7 @@
 				B6BF30D8183BC57600CCBCB2 /* MediaPlayer.framework in Frameworks */,
 				6CC4FD0C163EB31700CCBF0B /* UIKit.framework in Frameworks */,
 				6CC4FD0E163EB31700CCBF0B /* Foundation.framework in Frameworks */,
-				551F8F3E248F35D8006CD51E /* libRDPDFLib.a in Frameworks */,
+				551F8F3E248F35D8006CD51E /* libRDPDFLib.xcframework in Frameworks */,
 				6CC4FD10163EB31700CCBF0B /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,7 +465,7 @@
 			files = (
 				A8AF4884229D8A1300D62AB0 /* Foundation.framework in Frameworks */,
 				A8AF4883229D808700D62AB0 /* UIKit.framework in Frameworks */,
-				A84CA78924923F170082C9DE /* libRDPDFLib.a in Frameworks */,
+				A84CA78924923F170082C9DE /* libRDPDFLib.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +475,7 @@
 		551F8F36248F35A9006CD51E /* PDFLib */ = {
 			isa = PBXGroup;
 			children = (
-				551F8F3B248F35D8006CD51E /* libRDPDFLib.a */,
+				551F8F3B248F35D8006CD51E /* libRDPDFLib.xcframework */,
 				551F8F3C248F35D8006CD51E /* PDFIOS.h */,
 				551F8F3A248F35D8006CD51E /* PDFObjc.h */,
 				551F8F3D248F35D8006CD51E /* PDFObjc.m */,
@@ -1286,7 +1286,6 @@
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = 45X2SLBCW8;
 				ENABLE_BITCODE = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_FAST_MATH = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -1294,12 +1293,10 @@
 				GCC_PREFIX_HEADER = "PDFViewer/PDFViewer-Prefix.pch";
 				GCC_THREADSAFE_STATICS = NO;
 				INFOPLIST_FILE = "PDFViewer/PDFViewer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PDFViewer\"",
-					"\"$(SRCROOT)/PDFViewer/PDFLib\"",
-					"$(PROJECT_DIR)/PDFViewer/PDFLib",
 				);
 				MARKETING_VERSION = 4.4;
 				NEW_SETTING = "";
@@ -1337,12 +1334,10 @@
 				GCC_PREFIX_HEADER = "PDFViewer/PDFViewer-Prefix.pch";
 				GCC_THREADSAFE_STATICS = NO;
 				INFOPLIST_FILE = "PDFViewer/PDFViewer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/PDFViewer\"",
-					"\"$(SRCROOT)/PDFViewer/PDFLib\"",
-					"$(PROJECT_DIR)/PDFViewer/PDFLib",
 				);
 				MARKETING_VERSION = 4.4;
 				NEW_SETTING = "";
